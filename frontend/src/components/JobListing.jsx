@@ -32,10 +32,14 @@ const validationSchema = Yup.object().shape({
 const JobListing = ({ job }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { isAuthenticated } = useSelector((state) => state?.auth || {}); // Ensure 'auth' exists in state
+  const { isAuthenticated,user } = useSelector((state) => state?.auth || {}); // Ensure 'auth' exists in state
 
   const handleClickOpen = () => {
-    setOpen(true);
+    if (user.role === 'Employer') {
+      alert("You cannot apply for jobs as an employer. Only job seekers can apply.");  
+    } else {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {

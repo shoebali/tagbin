@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// Define the User schema with validation rules
+ 
 const userSchema = new mongoose.Schema({
   fullname: {
     type: String,

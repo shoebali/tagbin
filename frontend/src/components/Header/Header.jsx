@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import axios from 'axios';
 import { debounce } from 'lodash';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -84,7 +82,7 @@ function Header() {
 
   // Function to clear search box on link click
   const handleLinkClick = () => {
-    setSearchQuery(''); // Clear the search box
+    setSearchQuery('');  
   };
 
   useEffect(() => {
@@ -134,7 +132,7 @@ function Header() {
                     style={{ cursor: "pointer", marginRight: 20 }}
                     onClick={() => {
                       handleLogout();
-                      handleLinkClick(); // Clear search on logout
+                      handleLinkClick(); 
                     }}
                   />
                 </span>

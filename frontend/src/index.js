@@ -17,14 +17,18 @@ import JobApplication from "./components/JobApplication/JobApplication.jsx";
 import { Provider } from 'react-redux';
 import store from './redux/Store/store';
 import JobResultsPage from './components/JobResultsPage/JobResultsPage';
+import ProtectedRoute from './components/ProtectedRoute';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
       <Route exact="true" path="/login" element={<Login />} />
       <Route exact="true" path="/register" element={<Register />} />
-      <Route exact="true" path="/jobs" element={<Jobs />} />
-      <Route exact="true" path="/job-applications" element={<JobApplication />} />
+      <Route path="/" element={<ProtectedRoute redirectTo="/login" />}>
+        <Route exact="true" path="/jobs" element={<Jobs />} />
+        <Route exact="true" path="/job-applications" element={<JobApplication />} />
+      </Route>
       <Route exact="true" path="/search/:jobTitleSlug" element={<JobResultsPage />} />
     </Route>
   )
@@ -37,7 +41,4 @@ root.render(
     </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

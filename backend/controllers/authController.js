@@ -1,4 +1,3 @@
-// backend/controllers/authController.js
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -46,7 +45,7 @@ exports.login = async (req, res) => {
   const { email, password, userType } = req.body;
 
   // Validate userType
-  const validUserTypes = ['Job Seeker', 'Employer']; // Add valid user types
+  const validUserTypes = ['Job Seeker', 'Employer']; 
   if (!validUserTypes.includes(userType)) {
     return res.status(400).json({ error: "Invalid user type" });
   }
@@ -63,10 +62,9 @@ exports.login = async (req, res) => {
   const token = jwt.sign(
     { userId: user._id, role: user.role },
     process.env.JWT_SECRET,
-    { expiresIn: '1h' } // Optional: Set token expiration
+    { expiresIn: '1h' } 
   );
   const expiry = Date.now() + 3600000;
-  // Prepare user data without password
   const { password: _, ...userData } = user.toObject();
 
   // Send success response

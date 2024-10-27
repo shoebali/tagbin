@@ -1,4 +1,3 @@
-// backend/routes/jobRoutes.js
 const express = require('express');
 const { createJob, getAllJobs, updateJob, deleteJob,getJobDetails,applyJob,getApplicationsForEmployer,getEmployerJobs } = require('../controllers/jobController');
 const authMiddleware = require('../middleware/auth');

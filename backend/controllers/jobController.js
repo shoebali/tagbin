@@ -1,8 +1,6 @@
-// backend/controllers/jobController.js
 const Job = require('../models/Job');
 const Application = require('../models/Application');
 
-// Create a new job listing (only for employers)
 exports.createJob = async (req, res) => {
   // Check if the user is an employer
   if (req.user.role !== 'Employer') {

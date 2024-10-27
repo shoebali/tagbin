@@ -1,20 +1,19 @@
 const mongoose = require('mongoose');
-
-// Create a schema for the job applications
+ 
 const ApplicationSchema = new mongoose.Schema({
   jobId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Job',
-    required: true, // Ensure jobId is required
+    required: true,  
   },
   seekerId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true, // Ensure seekerId is required
+    required: true,  
   },
   resume: {
     type: String,
-    required: true, // Ensure resume is required
+    required: true, 
     validate: {
       validator: function (v) {
         return /\.(pdf|doc|docx)$/.test(v); // Check if the file is a PDF or DOC
@@ -24,12 +23,10 @@ const ApplicationSchema = new mongoose.Schema({
   },
   coverLetter: {
     type: String,
-    required: true, // Ensure coverLetter is required
-    // minlength: [3, 'Cover letter must be at least 10 characters long.'], // Minimum length validation
+    required: true
   },
 }, {
-  timestamps: true, // Automatically manage createdAt and updatedAt fields
+  timestamps: true, 
 });
-
-// Export the Application model
+ 
 module.exports = mongoose.model('Application', ApplicationSchema);

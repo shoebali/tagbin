@@ -76,6 +76,17 @@ function Header() {
     debouncedFetchResults(value);
   };
 
+  // Function to handle search result click
+  const handleSearchResultClick = (jobTitle) => {
+    setSearchQuery(jobTitle); // Set the clicked job title in the search box
+    setShowDropdown(false); // Hide the dropdown
+  };
+
+  // Function to clear search box on link click
+  const handleLinkClick = () => {
+    setSearchQuery(''); // Clear the search box
+  };
+
   useEffect(() => {
     if (!searchQuery) setShowDropdown(false);
     const handleClickOutside = (e) => {
@@ -90,29 +101,29 @@ function Header() {
   return (
     <Navbar expand="lg" bg="dark" variant="dark" className="p-3">
       <Container fluid>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/" onClick={handleLinkClick}>
           <img src="https://tagbin.in/assets/images/logo/logo.webp" height={50} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="ms-auto my-2 my-lg-0" navbarScroll>
             {!isAuthenticated && (
-              <Nav.Link as={Link} to="/login" className="text-white me-3 mb-3">
+              <Nav.Link as={Link} to="/login" className="text-white me-3 mb-3" onClick={handleLinkClick}>
                 Login/Register
               </Nav.Link>
             )}
             {isAuthenticated && (
               <Nav className="ms-auto">
                 <span className="text-warning d-flex align-items-center">
-                  <Nav.Link as={Link} to={'/'} className="text-white me-3 mb-3">
+                  <Nav.Link as={Link} to={'/'} className="text-white me-3 mb-3" onClick={handleLinkClick}>
                     {user?.fullname}
                   </Nav.Link>
                   {user?.role === 'Employer' && (
                     <>
-                      <Nav.Link as={Link} to={'/jobs'} className="text-white me-3 mb-3">
+                      <Nav.Link as={Link} to={'/jobs'} className="text-white me-3 mb-3" onClick={handleLinkClick}>
                         Jobs
                       </Nav.Link>
-                      <Nav.Link as={Link} to="/job-applications" className="text-white me-3 mb-3">
+                      <Nav.Link as={Link} to="/job-applications" className="text-white me-3 mb-3" onClick={handleLinkClick}>
                         Job Applications
                       </Nav.Link>
                     </>
@@ -121,7 +132,10 @@ function Header() {
                     size={20}
                     className='me-3 mb-3'
                     style={{ cursor: "pointer", marginRight: 20 }}
-                    onClick={handleLogout}
+                    onClick={() => {
+                      handleLogout();
+                      handleLinkClick(); // Clear search on logout
+                    }}
                   />
                 </span>
               </Nav>
@@ -143,7 +157,10 @@ function Header() {
                     key={index}
                     as={Link}
                     to={`/search/${convertToSlug(job.title)}`}
-                    onClick={() => setShowDropdown(false)}
+                    onClick={() => {
+                      handleSearchResultClick(job.title);
+                      handleLinkClick();
+                    }}
                   >
                     {job.title}
                   </Dropdown.Item>

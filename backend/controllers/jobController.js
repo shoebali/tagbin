@@ -205,10 +205,11 @@ exports.getApplicationsForEmployer = async (req, res) => {
     // Get the job IDs from the jobs
     const jobIds = jobs.map(job => job._id);
 
-    // Fetch applications related to the employer's jobs
+    // Fetch applications related to the employer's jobs, sorted by date descending
     const applications = await Application.find({ jobId: { $in: jobIds } })
-      .populate('jobId', 'title company location description salary type') // Populate job title for better clarity
-      .populate('seekerId', 'fullname email phoneNumber resume coverLetter'); // Populate seeker details if needed
+      .populate('jobId', 'title company location description salary type')  
+      .populate('seekerId', 'fullname email phoneNumber resume coverLetter')  
+      .sort({ createdAt: -1 }); // Sort by date in descending order
 
     res.status(200).json({ status: 'success', applications });
   } catch (error) {

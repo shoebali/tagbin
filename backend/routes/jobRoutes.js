@@ -15,6 +15,5 @@ router.put('/:jobId', authMiddleware(['Employer']), updateJob);
 router.delete('/:jobId', authMiddleware(['Employer']), deleteJob);
 router.post('/:jobId/apply', authMiddleware(['Job Seeker']), upload.single('resume'), applyJob);
 router.post('/applications', authMiddleware(['Employer']), getApplicationsForEmployer);
-// router.post('/:jobId/apply', authMiddleware(['Job Seeker']), applyJob);
 
 module.exports = router;

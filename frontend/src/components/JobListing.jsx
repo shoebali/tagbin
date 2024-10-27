@@ -46,7 +46,7 @@ const JobListing = ({ job }) => {
     const formData = new FormData();
     formData.append('coverLetter', values.coverLetter);
     formData.append('resume', values.resume);
-    formData.append('jobId', job?._id); // Safely access job._id
+    formData.append('jobId', job?._id); 
 
     try {
       setIsLoading(true);

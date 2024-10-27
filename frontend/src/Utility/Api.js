@@ -18,9 +18,7 @@ export const axiosInstance = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    // SessionId: localStorage.getItem('session')
-    //'Access-Control-Allow-Origin': '*',
-    // Authorization: 'Bearer ' + localStorage.getItem('caroktajwt')
+
   }
 });
 
@@ -39,12 +37,10 @@ export const addItem = async (endpoint, requestBody) => {
 export const addItemToken = async (endpoint, requestBody) => {
 
   const storedAuthState = localStorage.getItem("session");
-  // console.log(storedAuthState);
   try {
     const response = await api.post(endpoint, requestBody, {
       headers: {
         'Accept': 'application/json',
-        // 'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${storedAuthState}`
       },
     });
@@ -58,7 +54,6 @@ export const addItemToken = async (endpoint, requestBody) => {
 export const addItemForm = async (endpoint, requestBody) => {
 
   const storedAuthState = localStorage.getItem("session");
-  // console.log(storedAuthState);
   try {
     const response = await api.post(endpoint, requestBody, {
       headers: {
@@ -77,12 +72,10 @@ export const addItemForm = async (endpoint, requestBody) => {
 export const updateItemToken = async (endpoint, requestBody) => {
 
   const storedAuthState = localStorage.getItem("session");
-  // console.log(storedAuthState)
   try {
     const response = await api.put(endpoint, requestBody, {
       headers: {
         'Accept': 'application/json',
-        // 'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${storedAuthState}`
       },
     });
@@ -119,7 +112,6 @@ export const deleteItem = async (endpoint) => {
     const response = await api.delete(endpoint, {
       headers: {
         'Accept': 'application/json',
-        // 'Content-Type' is usually not needed for DELETE requests
         'Authorization': `Bearer ${storedAuthState}`
       },
     });
@@ -145,12 +137,10 @@ export const getAllItems = async (endpoint) => {
 
 export const getAllItemsToken = async (endpoint) => {
   try {
-    // const storedAuthState = JSON.parse(localStorage.getItem("authState"));
     const storedAuthState = localStorage.getItem("session");
 
     const headers = {
       'Accept': 'application/json',
-      // 'Content-Type': 'multipart/form-data',
       'Authorization': `Bearer ${storedAuthState}`
 
     };
@@ -166,7 +156,6 @@ export const getAllItemsData = async (endpoint) => {
   try {
     const headers = {
       'Accept': 'application/json',
-      // 'Content-Type': 'multipart/form-data',
       'x-access-key': '27318e8e431733ff30d912191991ff89',
     };
     const response = await api.get(endpoint, { headers: headers });

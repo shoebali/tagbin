@@ -4,10 +4,10 @@ const path = require('path');
 // Define storage for the uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/'); // Specify the directory where files will be saved
+    cb(null, 'public/uploads/'); 
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`); // Use a timestamp to avoid name conflicts
+    cb(null, `${Date.now()}-${file.originalname}`);  
   },
 });
 

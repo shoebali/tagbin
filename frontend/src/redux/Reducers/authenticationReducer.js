@@ -25,7 +25,7 @@ export default function authenticationReducer(state = initialState, action) {
         token: action.data.token,
         tokenExpiry: action.data.tokenExpiry,
       };
- 
+
       localStorage.setItem("authState", JSON.stringify(userAuthState));
 
       return {
@@ -33,7 +33,7 @@ export default function authenticationReducer(state = initialState, action) {
         ...userAuthState,
       };
 
-    case Actions.LOGOUT: 
+    case Actions.LOGOUT:
       localStorage.removeItem("authState");
 
       return {
@@ -43,7 +43,7 @@ export default function authenticationReducer(state = initialState, action) {
         token: "",
         tokenExpiry: "",
       };
- 
+
     default:
       return state;
   }

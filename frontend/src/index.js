@@ -9,11 +9,11 @@ import {
 } from "react-router-dom";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Home from "./pages/JobListPage"; // Adjust the path as needed
-import Login from "./components/Auth/Login"; // Adjust the path as needed
-import Register from "./components/Auth/Signup"; // Adjust the path as needed
-import Jobs from "./components/Jobs/Jobs.jsx"; // Adjust the path as needed
-import JobApplication from "./components/JobApplication/JobApplication.jsx"; // Adjust the path as needed
+import Home from "./pages/JobListPage"; 
+import Login from "./components/Auth/Login"; 
+import Register from "./components/Auth/Signup"; 
+import Jobs from "./components/Jobs/Jobs.jsx"; 
+import JobApplication from "./components/JobApplication/JobApplication.jsx"; 
 import { Provider } from 'react-redux';
 import store from './redux/Store/store';
 import JobResultsPage from './components/JobResultsPage/JobResultsPage';

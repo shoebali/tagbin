@@ -222,6 +222,8 @@ const JobApplication = () => {
                           <TableHead>
                             <TableRow>
                               <TableCell align="center">Application ID</TableCell>
+                              <TableCell align="center">Job Title</TableCell>
+                              <TableCell align="center">Job Location</TableCell>
                               <TableCell align="center">Name</TableCell>
                               <TableCell align="center">Email</TableCell>
                               <TableCell align="center">Mobile No.</TableCell>
@@ -246,6 +248,8 @@ const JobApplication = () => {
                                   }}
                                 >
                                   <TableCell align="center">{row._id}</TableCell>
+                                  <TableCell align="center">{row.jobId.title}</TableCell>
+                                  <TableCell align="center">{row.jobId.location}</TableCell>
                                   <TableCell align="center">
                                     {row.seekerId.fullname}
                                   </TableCell>
@@ -271,7 +275,6 @@ const JobApplication = () => {
                             {emptyRows > 0 && (
                               <TableRow style={{ height: 53 * emptyRows }}>
                                 <TableCell colSpan={8} />{" "}
-                                {/* Updated to match the number of columns */}
                               </TableRow>
                             )}
                           </TableBody>
@@ -284,7 +287,7 @@ const JobApplication = () => {
                                   25,
                                   { label: "All", value: -1 },
                                 ]}
-                                colSpan={8} // Update this to match the number of columns
+                                colSpan={8}
                                 count={rowsToDisplay.length}
                                 rowsPerPage={rowsPerPage}
                                 page={page}

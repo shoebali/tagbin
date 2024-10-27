@@ -32,33 +32,40 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.sec-padd{
+
+.sec-padd {
   padding: 4rem 0;
 }
-.customJobCard h6{
+
+.customJobCard h6 {
   background-color: black;
   color: white;
   border-radius: 4px;
   margin-bottom: 20px;
   padding: 8px;
 }
+
 .customJobCard .MuiTypography-body2 {
   color: black;
   font-size: 15px;
 }
+
 .customJobCard .MuiTypography-body1 {
   color: gray;
   font-size: 15px;
 }
-.customButton{
+
+.customButton {
   padding: 10px;
   margin: 0 auto;
 }
-.customButtonDesign{
+
+.customButtonDesign {
   background-color: #1976d2;
   color: white;
   text-decoration: none;

@@ -399,7 +399,7 @@ const Jobs = () => {
 
                             {emptyRows > 0 && (
                               <TableRow style={{ height: 53 * emptyRows }}>
-                                <TableCell colSpan={8} /> {/* Updated to match the number of columns */}
+                                <TableCell colSpan={8} />
                               </TableRow>
                             )}
                           </TableBody>
@@ -412,7 +412,7 @@ const Jobs = () => {
                                   25,
                                   { label: "All", value: -1 },
                                 ]}
-                                colSpan={8} // Update this to match the number of columns
+                                colSpan={8}
                                 count={rowsToDisplay.length}
                                 rowsPerPage={rowsPerPage}
                                 page={page}
@@ -435,7 +435,7 @@ const Jobs = () => {
                       <Modal
                         show={show}
                         onHide={handleClose}
-                        // style={{ marginTop: "10%" }}
+
                       >
                         <Modal.Header closeButton>
                           <Modal.Title id="contained-modal-title-vcenter">

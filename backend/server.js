@@ -8,13 +8,7 @@ const cors = require('cors');
 const crypto = require('crypto');
 const path = require('path');
 dotenv.config();
-connectDB();
-// const generateAccessKey = () => {
-//     return crypto.randomBytes(16).toString('hex'); // Generates a random 32-character hex string
-// };
-// const accessKey = generateAccessKey();
-// console.log(`Your generated access key is: ${accessKey}`);
-
+connectDB(); 
 
 const app = express();
 app.use(cors());
@@ -32,7 +26,6 @@ app.get('/resume/uploads/:imageName', (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
-// app.use('/api/jobs', jobRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

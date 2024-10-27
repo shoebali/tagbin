@@ -1,0 +1,43 @@
+.loader{
+    position: fixed;
+    /* left: 50%; */
+    /* top: 50%; */
+    z-index: 9999;
+    /* left: 0px; */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.loader div {
+    display: block !important;
+    left: 50%;
+    top: 40%;
+    position: absolute;
+}
+
+.dotLoader {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.dotLoader div {
+    display: block !important;
+    left: 20%;
+    top: 40%;
+    position: absolute;
+}
+.modalLoader {
+    /* position: fixed; */
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.modalLoader div {
+    display: block !important;
+    left: 40%;
+    top: 40%;
+    position: absolute;
+}
